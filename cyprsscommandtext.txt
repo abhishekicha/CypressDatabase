@@ -1,0 +1,169 @@
+cypress
+
+install node set path
+
+install vs code
+
+mkdir cypress folder
+
+npm init -y 
+
+npm install cypress --save-dev cypress@9.7.0
+node_modules/.bin/cypress open
+
+if failed to run cypress run in powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+and press y
+
+completed till section 15 udemy first video
+-----------------------------------------------------------------------
+
+npx cypress open
+demo site
+https://rahulshettyacademy.com/seleniumPractise/#/
+
+cypress supports css selectors only
+
+#idname
+
+.search-keyword
+
+input[type='search']
+
+form input
+
+code complete
+
+/// <reference types="Cypress" />
+
+----------------------------------------------------------------------------------------------
+
+behaviours be.
+
+proprties have.
+
+assertions
+------------------------------------------------------------------------------------------------------
+npm install -D cypress-iframe
+
+/// <reference types="Cypress-iframe" />
+----------------------------------------------------------------------------------------------
+run all test case
+node_modules/.bin/cypress run  --headed
+run specific test
+node_modules/.bin/cypress run --spec  cypress/integration/2-advanced-examples/test7.js --headed
+--------------------------------------------------------------------------------------
+command line environmental url change
+
+node_modules/.bin/cypress run --spec  cypress\integration\2-advanced-examples\Test7.js  --env url=https://google.com --headed
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+recordings
+ node_modules/.bin/cypress run --record --key 9ec4e101-ee3a-4d1a-8b7f-6aa25c5fdc14  
+
+----------------------------------------------------------------------------------------
+
+npm install --save-dev mochawesome
+
+npm install --save-dev mocha
+
+node_modules/.bin/cypress run --reporter mochawesome
+------------------------------------------------------------------------------------
+jemkins.war download
+
+navigate to directory 
+java -jar jenkins.war --enable-future-java --httpPort=9090
+if it is not supported
+java -jar jenkins.war --enable-future-java
+73d05963b6c84336a8730f9a184abd78
+This may also be found at: C:\Users\admin\.jenkins\secrets\initialAdminPassword
+username abby 
+password abby
+localhost:9090
+
+java -jar jenkins.war --httpPort=9090
+
+C:\Windows\system32\cmd.exe
+
+This happens because Jenkins is not aware about the shell path.
+In Manage Jenkins -> Configure System -> Shell, set the shell path as
+
+C:\Windows\system32\cmd.exe
+-------------------------------------------------------------------------------------------------------------------------------
+npm install --save-dev cypress-cucumber-preprocessor  
+
+paste the code plugin index.js file
+
+const cucumber = require('cypress-cucumber-preprocessor').default 
+
+module.exports = (on, config) => {
+
+  on('file:preprocessor', cucumber())
+
+}
+cypress.json> write this
+  "testFiles": "**/*.feature",
+
+package.json>
+"cypress-cucumber-preprocessor": {"nonGlobalStepDefinitions": true}
+
+node_modules/.bin/cypress run --spec cypress\integration\2-advanced-examples\BDD\ecommerce.feature --headed 
+
+npx cypress-tags run -e TAGS="@smoke" --headed
+
+npm install multiple-cucumber-html-reporter --save-dev
+-----------------------------------------------------------------------------------------
+api testing
+https://docs.cypress.io/api/commands/request#Syntax
+------------------------------------------------------------------------------------------
+jwt authentication
+
+token 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmJhZDBiMmUyNmI3ZTFhMTBlZjA2YjUiLCJ1c2VyRW1haWwiOiJhYmJ5cHJhMjhAZ21haWwuY29tIiwidXNlck1vYmlsZSI6ODc3NzgzOTQ3OCwidXNlclJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY1NjQxMDM3OSwiZXhwIjoxNjg3OTY3OTc5fQ.F_90zDGftnZQEsQdf6PIBf8DrKkU6ifFRtJTZzZG6Co
+------------------------------------------------------------------------------------------------------------
+check github first and match with dummy code
+npm install --save-dev cypress-sql-server
+
+
+The plug-in can be initialised in your cypress/plugins/index.js file as below.
+
+const sqlServer = require('cypress-sql-server');
+
+module.exports = (on, config) => {
+  tasks = sqlServer.loadDBPlugin(config.db);
+  on('task', tasks);
+}
+
+
+step2
+
+support/index.js file.
+
+import sqlServer from 'cypress-sql-server';
+sqlServer.loadDBCommands();
+
+step 3
+
+"db": {
+    "userName": "",
+    "password": "",
+    "server": "",
+    "options": {
+        "database": "",
+        "encrypt": true,
+        "rowCollectionOnRequestCompletion" : true
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+
+INSERT INTO persons (PersonID, LastName, FirstName, Address, City)
+VALUES ('0', 'Tom B. Erichsen', 'Skagen 21', 'kolkata', 'Norway');
+---------------------------------------------------------------------------------------------------------------------
+
+new database
+
+npm i mysql
+

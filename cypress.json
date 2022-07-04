@@ -1,0 +1,11 @@
+{
+    "env":{
+        "db": {
+            "host": "localhost",
+            "user": "root",
+            "password": "",
+            "database": "the360dev"
+          }
+        }
+    
+}
